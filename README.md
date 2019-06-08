@@ -11,11 +11,11 @@ Install-Package NiFi.Swagger -Version 1.9.1
 
 The version of product correspond to the nifi api version.
 
-sample 1.9.1 is build with API Nifi 1.9.1
+sample 1.9.1.1 is build with API Nifi 1.9.1
 
 | version         | version NIFI             |
 | --------------- | -------------------------|
-| version 1.9.1.0 | Build with api nifi  1.9.1 |
+| version 1.9.1.1 | Build with api nifi  1.9.1 |
 
 ## Getting Started
 
