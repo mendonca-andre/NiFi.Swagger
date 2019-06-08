@@ -3,3 +3,12 @@
 ################################################################################
 
 /.vs
+/NiFi.Swagger/.vs/NiFi.Swagger/v16/Server/sqlite3
+/NiFi.Swagger/bin/Debug
+/NiFi.Swagger/obj
+/NiFi.Swagger/packages
+/NiFi.Swagger/.vs/NiFi.Swagger/v16
+/NiFi.Swagger.SystemDiagnosticsApiExample/.vs/NiFi.Swagger.SystemDiagnosticsApiExample/v16/Server/sqlite3
+/NiFi.Swagger.SystemDiagnosticsApiExample/.vs/NiFi.Swagger.SystemDiagnosticsApiExample/v16
+/NiFi.Swagger.SystemDiagnosticsApiExample/bin/Debug
+/NiFi.Swagger.SystemDiagnosticsApiExample/obj/Debug

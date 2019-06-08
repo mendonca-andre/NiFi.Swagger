@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+NiFi Rest Api
+
+The Rest Api provides programmatic access to command and control a NiFi instance in real time. Start and                                              stop processors, monitor queues, query provenance data, and more. Each endpoint below includes a description,                                             definitions of the expected input and output, potential response codes, and the authorizations required                                             to invoke each service.
+
+OpenAPI spec version: 1.9.1
+Contact: dev@nifi.apache.org
+-->
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2551395-4D42-49E1-B061-8F7E2FF9987C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NiFi.Swagger</RootNamespace>
+    <AssemblyName>NiFi.Swagger</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JsonSubTypes, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\JsonSubTypes.1.5.2\lib\net45\JsonSubTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.9.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.106.6.9\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\AccessApi.cs" />
+    <Compile Include="Api\ConnectionsApi.cs" />
+    <Compile Include="Api\ControllerApi.cs" />
+    <Compile Include="Api\ControllerServicesApi.cs" />
+    <Compile Include="Api\CountersApi.cs" />
+    <Compile Include="Api\DataTransferApi.cs" />
+    <Compile Include="Api\FlowApi.cs" />
+    <Compile Include="Api\FlowfileQueuesApi.cs" />
+    <Compile Include="Api\FunnelApi.cs" />
+    <Compile Include="Api\InputPortsApi.cs" />
+    <Compile Include="Api\LabelsApi.cs" />
+    <Compile Include="Api\OutputPortsApi.cs" />
+    <Compile Include="Api\PoliciesApi.cs" />
+    <Compile Include="Api\ProcessGroupsApi.cs" />
+    <Compile Include="Api\ProcessorsApi.cs" />
+    <Compile Include="Api\ProvenanceApi.cs" />
+    <Compile Include="Api\ProvenanceEventsApi.cs" />
+    <Compile Include="Api\RemoteProcessGroupsApi.cs" />
+    <Compile Include="Api\ReportingTasksApi.cs" />
+    <Compile Include="Api\ResourcesApi.cs" />
+    <Compile Include="Api\SiteToSiteApi.cs" />
+    <Compile Include="Api\SnippetsApi.cs" />
+    <Compile Include="Api\SystemDiagnosticsApi.cs" />
+    <Compile Include="Api\TemplatesApi.cs" />
+    <Compile Include="Api\TenantsApi.cs" />
+    <Compile Include="Api\VersionsApi.cs" />
+    <Compile Include="Client\ApiClient.cs" />
+    <Compile Include="Client\ApiException.cs" />
+    <Compile Include="Client\ApiResponse.cs" />
+    <Compile Include="Client\Configuration.cs" />
+    <Compile Include="Client\ExceptionFactory.cs" />
+    <Compile Include="Client\GlobalConfiguration.cs" />
+    <Compile Include="Client\IApiAccessor.cs" />
+    <Compile Include="Client\IReadableConfiguration.cs" />
+    <Compile Include="Client\SwaggerDateConverter.cs" />
+    <Compile Include="Model\AboutDTO.cs" />
+    <Compile Include="Model\AboutEntity.cs" />
+    <Compile Include="Model\AccessConfigurationDTO.cs" />
+    <Compile Include="Model\AccessConfigurationEntity.cs" />
+    <Compile Include="Model\AccessPolicyDTO.cs" />
+    <Compile Include="Model\AccessPolicyEntity.cs" />
+    <Compile Include="Model\AccessPolicySummaryDTO.cs" />
+    <Compile Include="Model\AccessPolicySummaryEntity.cs" />
+    <Compile Include="Model\AccessStatusDTO.cs" />
+    <Compile Include="Model\AccessStatusEntity.cs" />
+    <Compile Include="Model\ActionDetailsDTO.cs" />
+    <Compile Include="Model\ActionDTO.cs" />
+    <Compile Include="Model\ActionEntity.cs" />
+    <Compile Include="Model\ActivateControllerServicesEntity.cs" />
+    <Compile Include="Model\AffectedComponentDTO.cs" />
+    <Compile Include="Model\AffectedComponentEntity.cs" />
+    <Compile Include="Model\AllowableValueDTO.cs" />
+    <Compile Include="Model\AllowableValueEntity.cs" />
+    <Compile Include="Model\AttributeDTO.cs" />
+    <Compile Include="Model\BannerDTO.cs" />
+    <Compile Include="Model\BannerEntity.cs" />
+    <Compile Include="Model\BatchSettingsDTO.cs" />
+    <Compile Include="Model\BatchSize.cs" />
+    <Compile Include="Model\Bucket.cs" />
+    <Compile Include="Model\BucketDTO.cs" />
+    <Compile Include="Model\BucketEntity.cs" />
+    <Compile Include="Model\BucketsEntity.cs" />
+    <Compile Include="Model\BulletinBoardDTO.cs" />
+    <Compile Include="Model\BulletinBoardEntity.cs" />
+    <Compile Include="Model\BulletinDTO.cs" />
+    <Compile Include="Model\BulletinEntity.cs" />
+    <Compile Include="Model\Bundle.cs" />
+    <Compile Include="Model\BundleDTO.cs" />
+    <Compile Include="Model\ClusterDTO.cs" />
+    <Compile Include="Model\ClusterEntity.cs" />
+    <Compile Include="Model\ClusterSearchResultsEntity.cs" />
+    <Compile Include="Model\ClusterSummaryDTO.cs" />
+    <Compile Include="Model\ClusteSummaryEntity.cs" />
+    <Compile Include="Model\ComponentDetailsDTO.cs" />
+    <Compile Include="Model\ComponentDifferenceDTO.cs" />
+    <Compile Include="Model\ComponentHistoryDTO.cs" />
+    <Compile Include="Model\ComponentHistoryEntity.cs" />
+    <Compile Include="Model\ComponentReferenceDTO.cs" />
+    <Compile Include="Model\ComponentReferenceEntity.cs" />
+    <Compile Include="Model\ComponentRestrictionPermissionDTO.cs" />
+    <Compile Include="Model\ComponentSearchResultDTO.cs" />
+    <Compile Include="Model\ComponentStateDTO.cs" />
+    <Compile Include="Model\ComponentStateEntity.cs" />
+    <Compile Include="Model\ConnectableComponent.cs" />
+    <Compile Include="Model\ConnectableDTO.cs" />
+    <Compile Include="Model\ConnectionDTO.cs" />
+    <Compile Include="Model\ConnectionEntity.cs" />
+    <Compile Include="Model\ConnectionsEntity.cs" />
+    <Compile Include="Model\ConnectionStatusDTO.cs" />
+    <Compile Include="Model\ConnectionStatusEntity.cs" />
+    <Compile Include="Model\ConnectionStatusSnapshotDTO.cs" />
+    <Compile Include="Model\ConnectionStatusSnapshotEntity.cs" />
+    <Compile Include="Model\ControllerBulletinsEntity.cs" />
+    <Compile Include="Model\ControllerConfigurationDTO.cs" />
+    <Compile Include="Model\ControllerConfigurationEntity.cs" />
+    <Compile Include="Model\ControllerDTO.cs" />
+    <Compile Include="Model\ControllerEntity.cs" />
+    <Compile Include="Model\ControllerServiceAPI.cs" />
+    <Compile Include="Model\ControllerServiceApiDTO.cs" />
+    <Compile Include="Model\ControllerServiceDTO.cs" />
+    <Compile Include="Model\ControllerServiceEntity.cs" />
+    <Compile Include="Model\ControllerServiceReferencingComponentDTO.cs" />
+    <Compile Include="Model\ControllerServiceReferencingComponentEntity.cs" />
+    <Compile Include="Model\ControllerServiceReferencingComponentsEntity.cs" />
+    <Compile Include="Model\ControllerServiceRunStatusEntity.cs" />
+    <Compile Include="Model\ControllerServicesEntity.cs" />
+    <Compile Include="Model\ControllerServiceStatusDTO.cs" />
+    <Compile Include="Model\ControllerServiceTypesEntity.cs" />
+    <Compile Include="Model\ControllerStatusDTO.cs" />
+    <Compile Include="Model\ControllerStatusEntity.cs" />
+    <Compile Include="Model\CopySnippetRequestEntity.cs" />
+    <Compile Include="Model\CounterDTO.cs" />
+    <Compile Include="Model\CounterEntity.cs" />
+    <Compile Include="Model\CountersDTO.cs" />
+    <Compile Include="Model\CountersEntity.cs" />
+    <Compile Include="Model\CountersSnapshotDTO.cs" />
+    <Compile Include="Model\CreateActiveRequestEntity.cs" />
+    <Compile Include="Model\CreateTemplateRequestEntity.cs" />
+    <Compile Include="Model\CurrentUserEntity.cs" />
+    <Compile Include="Model\DifferenceDTO.cs" />
+    <Compile Include="Model\DimensionsDTO.cs" />
+    <Compile Include="Model\DocumentedTypeDTO.cs" />
+    <Compile Include="Model\DropRequestDTO.cs" />
+    <Compile Include="Model\DropRequestEntity.cs" />
+    <Compile Include="Model\ExplicitRestrictionDTO.cs" />
+    <Compile Include="Model\FlowBreadcrumbDTO.cs" />
+    <Compile Include="Model\FlowBreadcrumbEntity.cs" />
+    <Compile Include="Model\FlowComparisonEntity.cs" />
+    <Compile Include="Model\FlowConfigurationDTO.cs" />
+    <Compile Include="Model\FlowConfigurationEntity.cs" />
+    <Compile Include="Model\FlowDTO.cs" />
+    <Compile Include="Model\FlowEntity.cs" />
+    <Compile Include="Model\FlowFileDTO.cs" />
+    <Compile Include="Model\FlowFileEntity.cs" />
+    <Compile Include="Model\FlowFileSummaryDTO.cs" />
+    <Compile Include="Model\FlowSnippetDTO.cs" />
+    <Compile Include="Model\FunnelDTO.cs" />
+    <Compile Include="Model\FunnelEntity.cs" />
+    <Compile Include="Model\FunnelsEntity.cs" />
+    <Compile Include="Model\GarbageCollectionDTO.cs" />
+    <Compile Include="Model\HistoryDTO.cs" />
+    <Compile Include="Model\HistoryEntity.cs" />
+    <Compile Include="Model\InputPortsEntity.cs" />
+    <Compile Include="Model\InstantiateTemplateRequestEntity.cs" />
+    <Compile Include="Model\LabelDTO.cs" />
+    <Compile Include="Model\LabelEntity.cs" />
+    <Compile Include="Model\LabelsEntity.cs" />
+    <Compile Include="Model\LineageDTO.cs" />
+    <Compile Include="Model\LineageEntity.cs" />
+    <Compile Include="Model\LineageRequestDTO.cs" />
+    <Compile Include="Model\LineageResultsDTO.cs" />
+    <Compile Include="Model\Link.cs" />
+    <Compile Include="Model\ListingRequestDTO.cs" />
+    <Compile Include="Model\ListingRequestEntity.cs" />
+    <Compile Include="Model\NodeConnectionStatusSnapshotDTO.cs" />
+    <Compile Include="Model\NodeCountersSnapshotDTO.cs" />
+    <Compile Include="Model\NodeDTO.cs" />
+    <Compile Include="Model\NodeEntity.cs" />
+    <Compile Include="Model\NodeEventDTO.cs" />
+    <Compile Include="Model\NodePortStatusSnapshotDTO.cs" />
+    <Compile Include="Model\NodeProcessGroupStatusSnapshotDTO.cs" />
+    <Compile Include="Model\NodeProcessorStatusSnapshotDTO.cs" />
+    <Compile Include="Model\NodeRemoteProcessGroupStatusSnapshotDTO.cs" />
+    <Compile Include="Model\NodeSearchResultDTO.cs" />
+    <Compile Include="Model\NodeStatusSnapshotsDTO.cs" />
+    <Compile Include="Model\NodeSystemDiagnosticsSnapshotDTO.cs" />
+    <Compile Include="Model\OutputPortsEntity.cs" />
+    <Compile Include="Model\PeerDTO.cs" />
+    <Compile Include="Model\PeersEntity.cs" />
+    <Compile Include="Model\Permissions.cs" />
+    <Compile Include="Model\PermissionsDTO.cs" />
+    <Compile Include="Model\PortDTO.cs" />
+    <Compile Include="Model\PortEntity.cs" />
+    <Compile Include="Model\PortRunStatusEntity.cs" />
+    <Compile Include="Model\PortStatusDTO.cs" />
+    <Compile Include="Model\PortStatusEntity.cs" />
+    <Compile Include="Model\PortStatusSnapshotDTO.cs" />
+    <Compile Include="Model\PortStatusSnapshotEntity.cs" />
+    <Compile Include="Model\Position.cs" />
+    <Compile Include="Model\PositionDTO.cs" />
+    <Compile Include="Model\PreviousValueDTO.cs" />
+    <Compile Include="Model\PrioritizerTypesEntity.cs" />
+    <Compile Include="Model\ProcessGroupDTO.cs" />
+    <Compile Include="Model\ProcessGroupEntity.cs" />
+    <Compile Include="Model\ProcessGroupFlowDTO.cs" />
+    <Compile Include="Model\ProcessGroupFlowEntity.cs" />
+    <Compile Include="Model\ProcessGroupsEntity.cs" />
+    <Compile Include="Model\ProcessGroupStatusDTO.cs" />
+    <Compile Include="Model\ProcessGroupStatusEntity.cs" />
+    <Compile Include="Model\ProcessGroupStatusSnapshotDTO.cs" />
+    <Compile Include="Model\ProcessGroupStatusSnapshotEntity.cs" />
+    <Compile Include="Model\ProcessorConfigDTO.cs" />
+    <Compile Include="Model\ProcessorDTO.cs" />
+    <Compile Include="Model\ProcessorEntity.cs" />
+    <Compile Include="Model\ProcessorRunStatusEntity.cs" />
+    <Compile Include="Model\ProcessorsEntity.cs" />
+    <Compile Include="Model\ProcessorStatusDTO.cs" />
+    <Compile Include="Model\ProcessorStatusEntity.cs" />
+    <Compile Include="Model\ProcessorStatusSnapshotDTO.cs" />
+    <Compile Include="Model\ProcessorStatusSnapshotEntity.cs" />
+    <Compile Include="Model\ProcessorTypesEntity.cs" />
+    <Compile Include="Model\PropertyDescriptorDTO.cs" />
+    <Compile Include="Model\PropertyDescriptorEntity.cs" />
+    <Compile Include="Model\PropertyHistoryDTO.cs" />
+    <Compile Include="Model\ProvenanceDTO.cs" />
+    <Compile Include="Model\ProvenanceEntity.cs" />
+    <Compile Include="Model\ProvenanceEventDTO.cs" />
+    <Compile Include="Model\ProvenanceEventEntity.cs" />
+    <Compile Include="Model\ProvenanceLinkDTO.cs" />
+    <Compile Include="Model\ProvenanceNodeDTO.cs" />
+    <Compile Include="Model\ProvenanceOptionsDTO.cs" />
+    <Compile Include="Model\ProvenanceOptionsEntity.cs" />
+    <Compile Include="Model\ProvenanceRequestDTO.cs" />
+    <Compile Include="Model\ProvenanceResultsDTO.cs" />
+    <Compile Include="Model\ProvenanceSearchableFieldDTO.cs" />
+    <Compile Include="Model\QueueSizeDTO.cs" />
+    <Compile Include="Model\RegistryClientEntity.cs" />
+    <Compile Include="Model\RegistryClientsEntity.cs" />
+    <Compile Include="Model\RegistryDTO.cs" />
+    <Compile Include="Model\RelationshipDTO.cs" />
+    <Compile Include="Model\RemotePortRunStatusEntity.cs" />
+    <Compile Include="Model\RemoteProcessGroupContentsDTO.cs" />
+    <Compile Include="Model\RemoteProcessGroupDTO.cs" />
+    <Compile Include="Model\RemoteProcessGroupEntity.cs" />
+    <Compile Include="Model\RemoteProcessGroupPortDTO.cs" />
+    <Compile Include="Model\RemoteProcessGroupPortEntity.cs" />
+    <Compile Include="Model\RemoteProcessGroupsEntity.cs" />
+    <Compile Include="Model\RemoteProcessGroupStatusDTO.cs" />
+    <Compile Include="Model\RemoteProcessGroupStatusEntity.cs" />
+    <Compile Include="Model\RemoteProcessGroupStatusSnapshotDTO.cs" />
+    <Compile Include="Model\RemoteProcessGroupStatusSnapshotEntity.cs" />
+    <Compile Include="Model\ReportingTaskDTO.cs" />
+    <Compile Include="Model\ReportingTaskEntity.cs" />
+    <Compile Include="Model\ReportingTaskRunStatusEntity.cs" />
+    <Compile Include="Model\ReportingTasksEntity.cs" />
+    <Compile Include="Model\ReportingTaskStatusDTO.cs" />
+    <Compile Include="Model\ReportingTaskTypesEntity.cs" />
+    <Compile Include="Model\RequiredPermissionDTO.cs" />
+    <Compile Include="Model\ResourceDTO.cs" />
+    <Compile Include="Model\ResourcesEntity.cs" />
+    <Compile Include="Model\RevisionDTO.cs" />
+    <Compile Include="Model\ScheduleComponentsEntity.cs" />
+    <Compile Include="Model\SearchResultGroupDTO.cs" />
+    <Compile Include="Model\SearchResultsDTO.cs" />
+    <Compile Include="Model\SearchResultsEntity.cs" />
+    <Compile Include="Model\SnippetDTO.cs" />
+    <Compile Include="Model\SnippetEntity.cs" />
+    <Compile Include="Model\StartVersionControlRequestEntity.cs" />
+    <Compile Include="Model\StateEntryDTO.cs" />
+    <Compile Include="Model\StateMapDTO.cs" />
+    <Compile Include="Model\StatusDescriptorDTO.cs" />
+    <Compile Include="Model\StatusHistoryDTO.cs" />
+    <Compile Include="Model\StatusHistoryEntity.cs" />
+    <Compile Include="Model\StatusSnapshotDTO.cs" />
+    <Compile Include="Model\StorageUsageDTO.cs" />
+    <Compile Include="Model\StreamingOutput.cs" />
+    <Compile Include="Model\SubmitReplayRequestEntity.cs" />
+    <Compile Include="Model\SystemDiagnosticsDTO.cs" />
+    <Compile Include="Model\SystemDiagnosticsEntity.cs" />
+    <Compile Include="Model\SystemDiagnosticsSnapshotDTO.cs" />
+    <Compile Include="Model\TemplateDTO.cs" />
+    <Compile Include="Model\TemplateEntity.cs" />
+    <Compile Include="Model\TemplatesEntity.cs" />
+    <Compile Include="Model\TenantDTO.cs" />
+    <Compile Include="Model\TenantEntity.cs" />
+    <Compile Include="Model\TenantsEntity.cs" />
+    <Compile Include="Model\TransactionResultEntity.cs" />
+    <Compile Include="Model\UpdateControllerServiceReferenceRequestEntity.cs" />
+    <Compile Include="Model\UriBuilder.cs" />
+    <Compile Include="Model\UserDTO.cs" />
+    <Compile Include="Model\UserEntity.cs" />
+    <Compile Include="Model\UserGroupDTO.cs" />
+    <Compile Include="Model\UserGroupEntity.cs" />
+    <Compile Include="Model\UserGroupsEntity.cs" />
+    <Compile Include="Model\UsersEntity.cs" />
+    <Compile Include="Model\VariableDTO.cs" />
+    <Compile Include="Model\VariableEntity.cs" />
+    <Compile Include="Model\VariableRegistryDTO.cs" />
+    <Compile Include="Model\VariableRegistryEntity.cs" />
+    <Compile Include="Model\VariableRegistryUpdateRequestDTO.cs" />
+    <Compile Include="Model\VariableRegistryUpdateRequestEntity.cs" />
+    <Compile Include="Model\VariableRegistryUpdateStepDTO.cs" />
+    <Compile Include="Model\VersionControlComponentMappingEntity.cs" />
+    <Compile Include="Model\VersionControlInformationDTO.cs" />
+    <Compile Include="Model\VersionControlInformationEntity.cs" />
+    <Compile Include="Model\VersionedConnection.cs" />
+    <Compile Include="Model\VersionedControllerService.cs" />
+    <Compile Include="Model\VersionedFlow.cs" />
+    <Compile Include="Model\VersionedFlowCoordinates.cs" />
+    <Compile Include="Model\VersionedFlowDTO.cs" />
+    <Compile Include="Model\VersionedFlowEntity.cs" />
+    <Compile Include="Model\VersionedFlowsEntity.cs" />
+    <Compile Include="Model\VersionedFlowSnapshot.cs" />
+    <Compile Include="Model\VersionedFlowSnapshotEntity.cs" />
+    <Compile Include="Model\VersionedFlowSnapshotMetadata.cs" />
+    <Compile Include="Model\VersionedFlowSnapshotMetadataEntity.cs" />
+    <Compile Include="Model\VersionedFlowSnapshotMetadataSetEntity.cs" />
+    <Compile Include="Model\VersionedFlowUpdateRequestDTO.cs" />
+    <Compile Include="Model\VersionedFlowUpdateRequestEntity.cs" />
+    <Compile Include="Model\VersionedFunnel.cs" />
+    <Compile Include="Model\VersionedLabel.cs" />
+    <Compile Include="Model\VersionedPort.cs" />
+    <Compile Include="Model\VersionedProcessGroup.cs" />
+    <Compile Include="Model\VersionedProcessor.cs" />
+    <Compile Include="Model\VersionedPropertyDescriptor.cs" />
+    <Compile Include="Model\VersionedRemoteGroupPort.cs" />
+    <Compile Include="Model\VersionedRemoteProcessGroup.cs" />
+    <Compile Include="Model\VersionInfoDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DateTimeFixingConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
