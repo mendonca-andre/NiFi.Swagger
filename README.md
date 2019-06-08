@@ -4,7 +4,7 @@
 To install NiFi.Swagger from within Visual Studio, search for NiFi.Swagger in the NuGet Package Manager UI, or run the following command in the Package Manager Console:
 
 ```
-Install-Package NiFi.Swagger -Version 1.9.1
+Install-Package NiFi.Swagger -Version 1.9.1.1
 ```
 
 ### Which version 
