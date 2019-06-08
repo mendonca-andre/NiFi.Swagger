@@ -12,3 +12,7 @@
 /NiFi.Swagger.SystemDiagnosticsApiExample/.vs/NiFi.Swagger.SystemDiagnosticsApiExample/v16
 /NiFi.Swagger.SystemDiagnosticsApiExample/bin/Debug
 /NiFi.Swagger.SystemDiagnosticsApiExample/obj/Debug
+/NiFi.Swagger/bin/Release
+/NiFi.Swagger.SystemDiagnosticsApiExample/bin/Release
+/NiFi.Swagger.SystemDiagnosticsApiExample/obj/Release
+/NiFi.Swagger/nuget.exe

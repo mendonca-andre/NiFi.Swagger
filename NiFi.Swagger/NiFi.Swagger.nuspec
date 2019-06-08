@@ -2,24 +2,25 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- The identifier that must be unique within the hosting gallery -->
-        <id>$id$</id>
-        <title>Swagger Library</title>
+        <id>NiFi.Swagger</id>
+        <title>NiFi.Swagger</title>
 
         <!-- The package version number that is used when resolving dependencies -->
-        <version>$version$</version>
+        <version>1.9.1</version>
 
         <!-- Authors contain text that appears directly on the gallery -->
-        <authors>$author$</authors>
+        <authors>NiFi.Swagger</authors>
 
         <!-- Owners are typically nuget.org identities that allow gallery
              users to earily find other packages by the same owners.  -->
-        <owners>$author$</owners>
+        <owners>NiFi.Swagger</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <developmentDependency>false</developmentDependency>
 
         <!-- The description can be used in package manager UI. Note that the
              nuget.org gallery uses information you add in the portal. -->
-        <description>A library generated from a Swagger doc</description>
+        <description>.NET Client for Apache NiFi 1.9.1 using swagger-cogeden</description>
+        <summary>.NET Client for Apache NiFi 1.9.1 using swagger-cogeden</summary>
         <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
 
         <!-- Dependencies are automatically installed when the package is installed -->
@@ -32,10 +33,6 @@
         </dependencies>
     </metadata>
     <files>
-
-        <!-- A readme.txt will be displayed when the package is installed -->
-        <file src="..\..\README.md" target="" />
-        <file src="..\..\docs\**\*.*" target="docs" />
-
+    <file src="bin\Release\NiFi.Swagger.dll" target="lib\net46\NiFi.Swagger.dll" />
     </files>
 </package>
